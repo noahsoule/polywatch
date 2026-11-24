@@ -1,0 +1,7 @@
+logs/
+state.json
+alerts.jsonl
+backfill.log
+*.tmp
+__pycache__/
+.DS_Store

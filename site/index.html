@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polywatch</title>
+<meta name="description" content="Unusual long-shot bets on Polymarket's news-sensitive markets, flagged daily from public on-chain data.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --surface-2: #f3f2ee;
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #6f6d68;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --accent: #2a78d6; --link: #1c5cab;
+  --s6: #86b6ef; --s7: #5598e7; --s8: #256abf; --s9: #104281;
+  --bar: #2a78d6;
+  --good: #0ca30c; --good-ink: #006300; --critical: #d03b3b; --critical-ink: #b42f2f; --pending: #c3c2b7;
+  --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --accent: #3987e5; --link: #86b6ef;
+    --s6: #184f95; --s7: #256abf; --s8: #3987e5; --s9: #86b6ef;
+    --bar: #3987e5;
+    --good: #0ca30c; --good-ink: #0ca30c; --critical: #d03b3b; --critical-ink: #e66767; --pending: #4a4a46;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --accent: #3987e5; --link: #86b6ef;
+  --s6: #184f95; --s7: #256abf; --s8: #3987e5; --s9: #86b6ef;
+  --bar: #3987e5;
+  --good: #0ca30c; --good-ink: #0ca30c; --critical: #d03b3b; --critical-ink: #e66767; --pending: #4a4a46;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--page); color: var(--ink);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 28px 16px 64px; }
+header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+h1 { font-size: 24px; letter-spacing: -0.02em; margin: 0; display: flex; align-items: center; gap: 10px; }
+h1 .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+.sub { color: var(--ink-2); margin: 4px 0 0; max-width: 640px; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.meta button { font: inherit; color: var(--ink-2); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 3px 8px; cursor: pointer; margin-left: 6px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 16px; }
+.seg { display: inline-flex; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 2px; }
+.seg button { font: inherit; font-size: 13px; color: var(--ink-2); background: none; border: 0; border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.seg button:hover { background: var(--surface-2); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); font-weight: 600; }
+select, input[type=search] {
+  font: inherit; font-size: 13px; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; height: 32px;
+}
+input[type=search] { min-width: 200px; flex: 1 1 200px; max-width: 320px; }
+.flabel { font-size: 12px; color: var(--muted); margin-left: 4px; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
+.kpi { padding: 14px 16px; }
+.kpi .label { font-size: 12px; color: var(--ink-2); }
+.kpi .value { font-size: 26px; font-weight: 650; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.kpi .note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.pos { color: var(--good-ink); } .neg { color: var(--critical-ink); }
+
+.grid2 { display: grid; grid-template-columns: 1.6fr 1fr; gap: 12px; margin-bottom: 16px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+.panel { padding: 16px; min-width: 0; }
+.panel h2 { font-size: 14px; font-weight: 600; margin: 0; }
+.panel .desc { font-size: 12px; color: var(--muted); margin: 2px 0 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--ink-2); margin-bottom: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+svg { display: block; width: 100%; overflow: visible; }
+svg text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.empty { color: var(--muted); font-size: 13px; padding: 40px 0; text-align: center; }
+
+.outcomes { display: flex; height: 14px; border-radius: 4px; overflow: hidden; gap: 2px; margin: 8px 0 10px; }
+.outcomes div { height: 100%; }
+.olegend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 12px; }
+.olegend b { display: block; font-size: 18px; font-variant-numeric: tabular-nums; color: var(--ink); }
+.olegend span { color: var(--ink-2); display: inline-flex; gap: 6px; align-items: center; }
+.olegend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+.tablecard { overflow: hidden; }
+.tablehead { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 16px 8px; gap: 8px; flex-wrap: wrap; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-weight: 600; font-size: 12px; color: var(--ink-2); padding: 8px 12px; border-bottom: 1px solid var(--grid); white-space: nowrap; cursor: pointer; user-select: none; }
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+th[aria-sort="descending"]::after { content: " ↓"; } th[aria-sort="ascending"]::after { content: " ↑"; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+tr.row { cursor: pointer; }
+tr.row:hover td { background: var(--surface-2); }
+tr.detail td { background: var(--surface-2); color: var(--ink-2); font-size: 12px; }
+.q { min-width: 220px; max-width: 380px; color: var(--ink); }
+.cat { font-size: 11px; color: var(--muted); }
+.score { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 22px; border-radius: 6px; font-weight: 700; font-size: 12px; color: #fff; }
+.wallet { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+.pill { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; white-space: nowrap; }
+.why { margin: 0; padding-left: 16px; }
+.txs { margin-top: 6px; word-break: break-all; }
+.more { display: block; width: 100%; font: inherit; color: var(--link); background: none; border: 0; padding: 12px; cursor: pointer; }
+
+.method { margin-top: 24px; padding: 20px; color: var(--ink-2); font-size: 13px; }
+.method h2 { color: var(--ink); font-size: 15px; margin: 0 0 8px; }
+.method h3 { color: var(--ink); font-size: 13px; margin: 16px 0 6px; }
+.method table td, .method table th { padding: 6px 10px; cursor: default; }
+.disclaimer { border-left: 3px solid var(--accent); padding: 8px 12px; background: var(--surface-2); border-radius: 0 8px 8px 0; color: var(--ink); }
+
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.12); display: none; min-width: 140px; }
+#tip .t { color: var(--muted); margin-bottom: 4px; }
+#tip .r { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+#tip .r b { font-variant-numeric: tabular-nums; }
+#tip .k { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+#tip .k i { width: 10px; height: 2px; display: inline-block; }
+footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1><span class="dot"></span>Polywatch</h1>
+      <p class="sub">Unusual long-shot bets on Polymarket's news-sensitive markets, flagged daily from public on-chain data. A flag is a pattern worth a closer look, not proof of wrongdoing.</p>
+    </div>
+    <div class="meta"><span id="updated"></span><button id="theme" type="button" aria-label="Toggle color theme">◐</button></div>
+  </header>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <div class="seg" id="range" role="group" aria-label="Date range">
+      <button data-v="7">7 days</button><button data-v="30" aria-pressed="true">30 days</button><button data-v="90">90 days</button><button data-v="0">All</button>
+    </div>
+    <span class="flabel">Score</span>
+    <div class="seg" id="minscore" role="group" aria-label="Minimum score">
+      <button data-v="6" aria-pressed="true">6+</button><button data-v="7">7+</button><button data-v="8">8+</button><button data-v="9">9+</button>
+    </div>
+    <select id="category" aria-label="Category"><option value="">All categories</option></select>
+    <input type="search" id="search" placeholder="Search market, wallet, name…" aria-label="Search">
+  </div>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="grid2">
+    <div class="card panel">
+      <h2>Flags per day</h2>
+      <p class="desc">By date of the flagged trades, stacked by score.</p>
+      <div class="legend" id="scoreLegend"></div>
+      <div id="daily"></div>
+    </div>
+    <div class="card panel">
+      <h2>By category</h2>
+      <p class="desc">Number of flags per market category.</p>
+      <div id="cats"></div>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card panel">
+      <h2>Money flagged per day</h2>
+      <p class="desc">Total stake (USDC) behind the flagged bets.</p>
+      <div id="money"></div>
+    </div>
+    <div class="card panel">
+      <h2>How flagged bets resolved</h2>
+      <p class="desc">Uninformed long shots should mostly lose. A high win rate here is the real signal.</p>
+      <div id="outcomes"></div>
+    </div>
+  </section>
+
+  <section class="card tablecard">
+    <div class="tablehead"><h2 style="font-size:14px;margin:0">Flagged positions</h2><span class="cat" id="count"></span></div>
+    <div class="scroll"><table id="tbl">
+      <thead><tr>
+        <th data-k="score" class="num">Score</th>
+        <th data-k="question">Market</th>
+        <th data-k="name">Wallet</th>
+        <th data-k="outcome">Bet</th>
+        <th data-k="usd" class="num">Stake</th>
+        <th data-k="avg_price" class="num">Price</th>
+        <th data-k="age_h" class="num">Wallet age</th>
+        <th data-k="first_trade" class="num" aria-sort="descending">When</th>
+        <th data-k="res">Result</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <button class="more" id="more" type="button" hidden>Show more</button>
+  </section>
+
+  <section class="card method" id="method">
+    <h2>Methodology</h2>
+    <p class="disclaimer">Polywatch surfaces <b>statistical patterns</b> in public trading data. A flagged wallet hasn't been shown to have traded on non-public information; many flags will be lucky guesses, hedges, or new users. Wallets are pseudonymous Polymarket accounts.</p>
+    <h3>Which markets</h3>
+    <p>Each day the scanner checks open Polymarket markets with at least $10k of volume where a small group could know the outcome before the public: executive and government appointments, corporate actions, rulings, central-bank decisions, military action, award results, and what public figures will say or post. Crypto price, weather and sports markets are excluded.</p>
+    <h3>What gets scored</h3>
+    <p>Every buy at a price of 0.25 or less in the last 25 hours, including resting limit orders. Buys are summed per wallet, market and outcome. Positions under $1,000 are ignored. Wallet age and diversification are measured as of the first flagged trade.</p>
+    <table>
+      <thead><tr><th>Signal</th><th class="num">Points</th></tr></thead>
+      <tbody>
+        <tr><td>Wallet less than 7 days old (less than 30 days)</td><td class="num">3 (1)</td></tr>
+        <tr><td>Traded 2 or fewer markets before (8 or fewer)</td><td class="num">2 (1)</td></tr>
+        <tr><td>Stake of $5,000 or more ($1,000 or more)</td><td class="num">2 (1)</td></tr>
+        <tr><td>Average price 0.10 or less (0.25 or less)</td><td class="num">2 (1)</td></tr>
+        <tr><td>Built up over 3 or more fills</td><td class="num">1</td></tr>
+        <tr><td>Stake of 25% or more of the market's listed liquidity</td><td class="num">1</td></tr>
+      </tbody>
+    </table>
+    <p>Positions scoring 6 or more are listed. When a market resolves, the flag records whether the bet won and its profit or loss.</p>
+    <h3>Data</h3>
+    <p>Polymarket Gamma API (markets) and Data API v2 (trades and wallet activity). All public and read-only. The first scoring rules were tuned on the November 2026 "Jensen Huang rejoins NVIDIA" market.</p>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.POLYWATCH || { flags: [], runs: [], generated_at: 0 };
+  var DAY = 86400;
+  var state = { range: 30, min: 6, cat: "", q: "", sort: "first_trade", dir: -1, limit: 50, open: {} };
+
+  // ---------- theme toggle (persisted per viewer, best effort)
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("pw-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("pw-theme", next); } catch (e) {}
+    render();
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+
+  // ---------- helpers (all API strings go through textContent)
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    if (attrs) for (var k in attrs) {
+      if (k === "text") n.textContent = attrs[k];
+      else if (k === "style") n.style.cssText = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    }
+    (kids || []).forEach(function (c) { if (c != null) n.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return n;
+  }
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function s(tag, attrs) { var n = document.createElementNS(SVGNS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); return n; }
+  function css(v) { return getComputedStyle(root).getPropertyValue(v).trim(); }
+  function money(v, compact) {
+    var a = Math.abs(v), sign = v < 0 ? "−" : "";
+    if (compact && a >= 1e6) return sign + "$" + (a / 1e6).toFixed(1) + "M";
+    if (compact && a >= 1e4) return sign + "$" + Math.round(a / 1e3) + "k";
+    return sign + "$" + Math.round(a).toLocaleString("en-US");
+  }
+  function dayKey(t) { return new Date(t * 1000).toISOString().slice(0, 10); }
+  function fmtDay(k) { var d = new Date(k + "T00:00:00Z"); return d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" }); }
+  function fmtTime(t) { return new Date(t * 1000).toLocaleString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "UTC", hour12: false }) + " UTC"; }
+  function age(h) { return h < 48 ? Math.round(h) + "h" : Math.round(h / 24) + "d"; }
+  function band(sc) { return sc >= 9 ? 9 : sc; }
+  function bandColor(b) { return css("--s" + b); }
+  var BANDS = [6, 7, 8, 9];
+  function bandLabel(b) { return b === 9 ? "9+" : String(b); }
+
+  // ---------- tooltip
+  var tip = document.getElementById("tip");
+  function showTip(evt, title, rows) {
+    tip.textContent = "";
+    tip.appendChild(el("div", { class: "t", text: title }));
+    rows.forEach(function (r) {
+      var key = el("span", { class: "k" }, [r.color ? el("i", { style: "background:" + r.color }) : null, r.label]);
+      tip.appendChild(el("div", { class: "r" }, [key, el("b", { text: r.value })]));
+    });
+    tip.style.display = "block";
+    moveTip(evt);
+  }
+  function moveTip(evt) {
+    var x = evt.clientX + 14, y = evt.clientY + 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > innerWidth - 8) x = evt.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = evt.clientY - h - 14;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function hideTip() { tip.style.display = "none"; }
+
+  // ---------- filtering
+  function filtered() {
+    var now = D.generated_at || Date.now() / 1000;
+    var q = state.q.toLowerCase();
+    return D.flags.filter(function (f) {
+      if (f.score < state.min) return false;
+      if (state.range && f.first_trade < now - state.range * DAY) return false;
+      if (state.cat && f.category !== state.cat) return false;
+      if (q && (f.question + " " + f.wallet + " " + (f.name || "")).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+  }
+
+  // ---------- KPIs
+  function kpi(label, value, note, cls) {
+    return el("div", { class: "card kpi" }, [
+      el("div", { class: "label", text: label }),
+      el("div", { class: "value" + (cls ? " " + cls : ""), text: value }),
+      note ? el("div", { class: "note", text: note }) : null
+    ]);
+  }
+  function renderKpis(F) {
+    var box = document.getElementById("kpis"); box.textContent = "";
+    var hi = F.filter(function (f) { return f.score >= 8; }).length;
+    var stake = F.reduce(function (a, f) { return a + f.usd; }, 0);
+    var res = F.filter(function (f) { return f.resolution; });
+    var won = res.filter(function (f) { return f.resolution.won; });
+    var pnl = res.reduce(function (a, f) { return a + f.resolution.pnl; }, 0);
+    var implied = res.length ? res.reduce(function (a, f) { return a + f.avg_price; }, 0) / res.length : 0;
+    var last = D.runs.length ? D.runs[D.runs.length - 1] : null;
+    box.appendChild(kpi("Flags", F.length.toLocaleString(), hi + " scored 8+"));
+    box.appendChild(kpi("Stake flagged", money(stake, true), F.length ? "avg " + money(stake / F.length, true) : ""));
+    box.appendChild(kpi("Win rate (resolved)", res.length ? Math.round(100 * won.length / res.length) + "%" : "—",
+      res.length ? won.length + " of " + res.length + " · odds implied " + Math.round(implied * 100) + "%" : "no resolved flags yet"));
+    box.appendChild(kpi("P&L on resolved flags", res.length ? (pnl >= 0 ? "+" : "") + money(pnl, true) : "—",
+      res.length ? "sum over " + res.length + " resolved" : "", res.length ? (pnl >= 0 ? "pos" : "neg") : ""));
+    box.appendChild(kpi("Markets watched", last ? last.markets.toLocaleString() : "—", last ? "last scan " + fmtTime(last.at) : ""));
+  }
+
+  // ---------- daily stacked bars (score bands) & money bars
+  function days(F) {
+    var now = D.generated_at || Date.now() / 1000;
+    var minT = state.range ? now - state.range * DAY : Math.min.apply(null, F.map(function (f) { return f.first_trade; }).concat([now - 7 * DAY]));
+    var keys = [], t = Math.floor(minT / DAY) * DAY;
+    for (; t <= now; t += DAY) keys.push(dayKey(t));
+    var by = {};
+    keys.forEach(function (k) { by[k] = { k: k, n: 0, usd: 0, b: { 6: 0, 7: 0, 8: 0, 9: 0 } }; });
+    F.forEach(function (f) { var d = by[dayKey(f.first_trade)]; if (d) { d.n++; d.usd += f.usd; d.b[band(f.score)]++; } });
+    return keys.map(function (k) { return by[k]; });
+  }
+  function niceMax(v) { if (v <= 0) return 1; var p = Math.pow(10, Math.floor(Math.log10(v))), m = v / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * p; }
+
+  function barChart(host, rows, opts) {
+    host.textContent = "";
+    var W = Math.max(host.clientWidth, 280), H = 200, L = 40, R = 4, T = 8, B = 22;
+    var max = niceMax(Math.max.apply(null, rows.map(opts.total).concat([opts.minMax || 1])));
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, height: H, role: "img", "aria-label": opts.aria });
+    var y = function (v) { return T + (H - T - B) * (1 - v / max); };
+    [0, 0.5, 1].forEach(function (f) {
+      var v = max * f, yy = y(v);
+      svg.appendChild(s("line", { x1: L, x2: W - R, y1: yy, y2: yy, stroke: f === 0 ? css("--axis") : css("--grid"), "stroke-width": 1 }));
+      var t = s("text", { x: L - 6, y: yy + 4, "text-anchor": "end" }); t.textContent = opts.fmt(v); svg.appendChild(t);
+    });
+    var n = rows.length, slot = (W - L - R) / n, bw = Math.max(2, Math.min(28, slot - 2));
+    var every = Math.ceil(n / Math.max(1, Math.floor((W - L) / 56)));
+    rows.forEach(function (r, i) {
+      var x = L + i * slot + (slot - bw) / 2, base = H - B;
+      var segs = opts.segments(r).filter(function (sg) { return sg.v > 0; });
+      segs.forEach(function (sg, j) {
+        var h = (H - T - B) * sg.v / max, top = base - h, last = j === segs.length - 1;
+        var hh = Math.max(0, h - (last ? 0 : 2));
+        var rad = Math.min(4, bw / 2, hh);
+        var d = last
+          ? "M" + x + "," + base + "V" + (top + rad) + "Q" + x + "," + top + " " + (x + rad) + "," + top + "H" + (x + bw - rad) + "Q" + (x + bw) + "," + top + " " + (x + bw) + "," + (top + rad) + "V" + base + "Z"
+          : "M" + x + "," + base + "V" + (base - hh) + "H" + (x + bw) + "V" + base + "Z";
+        svg.appendChild(s("path", { d: d, fill: sg.color }));
+        base = top;
+      });
+      if (i % every === 0) {
+        var t = s("text", { x: L + i * slot + slot / 2, y: H - 6, "text-anchor": "middle" }); t.textContent = fmtDay(r.k); svg.appendChild(t);
+      }
+      var hit = s("rect", { x: L + i * slot, y: T, width: slot, height: H - T - B, fill: "transparent", tabindex: 0 });
+      var show = function (e) { hit.setAttribute("fill", css("--grid")); hit.setAttribute("fill-opacity", ".35"); showTip(e, fmtDay(r.k), opts.tip(r)); };
+      hit.addEventListener("pointermove", show);
+      hit.addEventListener("focus", function () { var b = hit.getBoundingClientRect(); show({ clientX: b.right, clientY: b.top }); });
+      hit.addEventListener("pointerleave", function () { hit.setAttribute("fill", "transparent"); hideTip(); });
+      hit.addEventListener("blur", function () { hit.setAttribute("fill", "transparent"); hideTip(); });
+      svg.insertBefore(hit, svg.firstChild.nextSibling);
+    });
+    host.appendChild(svg);
+  }
+
+  function renderDaily(F) {
+    var leg = document.getElementById("scoreLegend"); leg.textContent = "";
+    BANDS.forEach(function (b) { leg.appendChild(el("span", {}, [el("i", { style: "background:" + bandColor(b) }), "Score " + bandLabel(b)])); });
+    var rows = days(F);
+    barChart(document.getElementById("daily"), rows, {
+      aria: "Flags per day stacked by score",
+      total: function (r) { return r.n; }, minMax: 4,
+      fmt: function (v) { return String(Math.round(v)); },
+      segments: function (r) { return BANDS.map(function (b) { return { v: r.b[b], color: bandColor(b) }; }); },
+      tip: function (r) {
+        return [{ label: "Total", value: String(r.n) }].concat(BANDS.slice().reverse().map(function (b) {
+          return { label: "Score " + bandLabel(b), value: String(r.b[b]), color: bandColor(b) };
+        }));
+      }
+    });
+    barChart(document.getElementById("money"), rows, {
+      aria: "Stake flagged per day",
+      total: function (r) { return r.usd; }, minMax: 1000,
+      fmt: function (v) { return money(v, true); },
+      segments: function (r) { return [{ v: r.usd, color: css("--bar") }]; },
+      tip: function (r) { return [{ label: "Stake", value: money(r.usd) }, { label: "Flags", value: String(r.n) }]; }
+    });
+  }
+
+  // ---------- categories (horizontal bars, single series)
+  function renderCats(F) {
+    var host = document.getElementById("cats"); host.textContent = "";
+    var by = {};
+    F.forEach(function (f) { var c = by[f.category] || (by[f.category] = { n: 0, usd: 0 }); c.n++; c.usd += f.usd; });
+    var rows = Object.keys(by).map(function (k) { return { k: k, n: by[k].n, usd: by[k].usd }; }).sort(function (a, b) { return b.n - a.n; });
+    if (!rows.length) { host.appendChild(el("div", { class: "empty", text: "No flags match these filters." })); return; }
+    var W = Math.max(host.clientWidth, 260), rowH = 30, LBL = 128, H = rows.length * rowH;
+    var max = Math.max.apply(null, rows.map(function (r) { return r.n; }));
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, height: H, role: "img", "aria-label": "Flags by category" });
+    rows.forEach(function (r, i) {
+      var y = i * rowH, bw = Math.max(4, (W - LBL - 44) * r.n / max), bh = 14, by0 = y + (rowH - bh) / 2;
+      var lt = s("text", { x: 0, y: y + rowH / 2 + 4, fill: css("--ink-2") }); lt.textContent = r.k; lt.style.fill = css("--ink-2"); lt.style.fontSize = "12px"; svg.appendChild(lt);
+      var rad = Math.min(4, bw / 2);
+      svg.appendChild(s("path", { d: "M" + LBL + "," + by0 + "H" + (LBL + bw - rad) + "Q" + (LBL + bw) + "," + by0 + " " + (LBL + bw) + "," + (by0 + rad) + "V" + (by0 + bh - rad) + "Q" + (LBL + bw) + "," + (by0 + bh) + " " + (LBL + bw - rad) + "," + (by0 + bh) + "H" + LBL + "Z", fill: css("--bar") }));
+      var vt = s("text", { x: LBL + bw + 6, y: y + rowH / 2 + 4 }); vt.textContent = r.n; svg.appendChild(vt);
+      var hit = s("rect", { x: 0, y: y, width: W, height: rowH, fill: "transparent", tabindex: 0 });
+      var show = function (e) { showTip(e, r.k, [{ label: "Flags", value: String(r.n) }, { label: "Stake", value: money(r.usd) }]); };
+      hit.addEventListener("pointermove", show);
+      hit.addEventListener("pointerleave", hideTip);
+      hit.addEventListener("focus", function () { var b = hit.getBoundingClientRect(); show({ clientX: b.left + LBL, clientY: b.top }); });
+      hit.addEventListener("blur", hideTip);
+      hit.addEventListener("click", function () { state.cat = state.cat === r.k ? "" : r.k; document.getElementById("category").value = state.cat; state.limit = 50; render(); });
+      svg.appendChild(hit);
+    });
+    host.appendChild(svg);
+  }
+
+  // ---------- outcomes
+  function renderOutcomes(F) {
+    var host = document.getElementById("outcomes"); host.textContent = "";
+    var won = F.filter(function (f) { return f.resolution && f.resolution.won; }).length;
+    var lost = F.filter(function (f) { return f.resolution && !f.resolution.won; }).length;
+    var pend = F.length - won - lost;
+    var parts = [["Won", won, "--good", "✓"], ["Lost", lost, "--critical", "✕"], ["Pending", pend, "--pending", "…"]];
+    var bar = el("div", { class: "outcomes", role: "img", "aria-label": won + " won, " + lost + " lost, " + pend + " pending" });
+    parts.forEach(function (p) { if (p[1]) bar.appendChild(el("div", { style: "flex:" + p[1] + ";background:" + css(p[2]) })); });
+    if (!F.length) bar.appendChild(el("div", { style: "flex:1;background:" + css("--grid") }));
+    host.appendChild(bar);
+    var leg = el("div", { class: "olegend" });
+    parts.forEach(function (p) {
+      leg.appendChild(el("div", {}, [el("b", { text: String(p[1]) }), el("span", {}, [el("i", { style: "background:" + css(p[2]) }), p[3] + " " + p[0]])]));
+    });
+    host.appendChild(leg);
+    var res = F.filter(function (f) { return f.resolution; });
+    if (res.length) {
+      var exp = res.reduce(function (a, f) { return a + f.avg_price; }, 0);
+      host.appendChild(el("p", { class: "desc", style: "margin-top:12px", text:
+        "At the prices paid, about " + exp.toFixed(1) + " of these " + res.length + " bets were expected to win; " + won + " did." }));
+    } else {
+      host.appendChild(el("p", { class: "desc", style: "margin-top:12px", text: "Results appear here as flagged markets resolve." }));
+    }
+  }
+
+  // ---------- table
+  var Q = function (f) { return f.question; };
+  function sortVal(f, k) {
+    if (k === "res") return f.resolution ? (f.resolution.won ? 2 : 0) : 1;
+    if (k === "name") return (f.name || f.wallet).toLowerCase();
+    var v = f[k]; return typeof v === "string" ? v.toLowerCase() : v;
+  }
+  function resultCell(f) {
+    if (!f.resolution) return el("span", { class: "pill", style: "color:var(--muted)", text: "… Pending" });
+    var r = f.resolution;
+    return el("span", { class: "pill " + (r.won ? "pos" : "neg"), text: (r.won ? "✓ Won " : "✕ Lost ") + (r.pnl >= 0 ? "+" : "") + money(r.pnl, true) });
+  }
+  function renderTable(F) {
+    var rows = F.slice().sort(function (a, b) {
+      var x = sortVal(a, state.sort), y = sortVal(b, state.sort);
+      return (x < y ? -1 : x > y ? 1 : 0) * state.dir || b.first_trade - a.first_trade;
+    });
+    document.getElementById("count").textContent = rows.length + " position" + (rows.length === 1 ? "" : "s");
+    var tb = document.querySelector("#tbl tbody"); tb.textContent = "";
+    if (!rows.length) { tb.appendChild(el("tr", {}, [el("td", { colspan: 9, class: "empty", text: "No flags match these filters." })])); }
+    rows.slice(0, state.limit).forEach(function (f) {
+      var sc = el("span", { class: "score", style: "background:" + bandColor(band(f.score)) + (band(f.score) === 6 && !isDark() ? ";color:#0b0b0b" : ""), text: String(f.score) });
+      var mk = el("td", { class: "q" }, [
+        f.slug ? el("a", { href: "https://polymarket.com/market/" + encodeURIComponent(f.slug), target: "_blank", rel: "noopener noreferrer", text: Q(f) }) : Q(f),
+        el("div", { class: "cat", text: f.category })
+      ]);
+      var short = f.wallet.slice(0, 6) + "…" + f.wallet.slice(-4);
+      var named = f.name && f.name.indexOf("0x") !== 0;
+      var wl = el("td", {}, [
+        el("a", { href: "https://polymarket.com/profile/" + encodeURIComponent(f.wallet), target: "_blank", rel: "noopener noreferrer", class: named ? "" : "wallet", text: named ? f.name : short }),
+        named ? el("div", { class: "wallet cat", text: short }) : null
+      ]);
+      var tr = el("tr", { class: "row", tabindex: 0, "aria-expanded": state.open[f.key] ? "true" : "false" }, [
+        el("td", { class: "num" }, [sc]), mk, wl,
+        el("td", { text: f.outcome }),
+        el("td", { class: "num", text: money(f.usd) }),
+        el("td", { class: "num", text: f.avg_price.toFixed(3) }),
+        el("td", { class: "num", text: age(f.age_h) }),
+        el("td", { class: "num", text: fmtTime(f.first_trade) }),
+        el("td", {}, [resultCell(f)])
+      ]);
+      var toggle = function () { state.open[f.key] = !state.open[f.key]; renderTable(filtered()); };
+      tr.addEventListener("click", function (e) { if (e.target.tagName !== "A") toggle(); });
+      tr.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+      tb.appendChild(tr);
+      if (state.open[f.key]) {
+        var why = el("ul", { class: "why" }, f.why.map(function (w) { return el("li", { text: w }); }));
+        var txs = el("div", { class: "txs" }, ["Transactions: "].concat((f.txs || []).map(function (h, i) {
+          return el("span", {}, [i ? ", " : "", el("a", { href: "https://polygonscan.com/tx/" + encodeURIComponent(h), target: "_blank", rel: "noopener noreferrer", text: h.slice(0, 10) + "…" })]);
+        })));
+        var info = el("div", {}, [
+          el("div", { text: f.shares.toLocaleString("en-US", { maximumFractionDigits: 0 }) + " shares over " + f.fills + " fill(s), " + fmtTime(f.first_trade) + " to " + fmtTime(f.last_trade) + ". Wallet had traded " + f.prior_markets + " market(s) before." }),
+          why, txs
+        ]);
+        tb.appendChild(el("tr", { class: "detail" }, [el("td", {}), el("td", { colspan: 8 }, [info])]));
+      }
+    });
+    var more = document.getElementById("more");
+    more.hidden = rows.length <= state.limit;
+    more.textContent = "Show more (" + (rows.length - state.limit) + " remaining)";
+    document.querySelectorAll("#tbl th").forEach(function (th) {
+      th.setAttribute("aria-sort", th.dataset.k === state.sort ? (state.dir < 0 ? "descending" : "ascending") : "none");
+    });
+  }
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    return t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  // ---------- wiring
+  function seg(id, key) {
+    var g = document.getElementById(id);
+    g.addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      g.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      state[key] = Number(b.dataset.v); state.limit = 50; render();
+    });
+  }
+  seg("range", "range"); seg("minscore", "min");
+  var cats = {}; D.flags.forEach(function (f) { cats[f.category] = 1; });
+  var sel = document.getElementById("category");
+  Object.keys(cats).sort().forEach(function (c) { sel.appendChild(el("option", { value: c, text: c })); });
+  sel.addEventListener("change", function () { state.cat = sel.value; state.limit = 50; render(); });
+  var tmr; document.getElementById("search").addEventListener("input", function (e) {
+    clearTimeout(tmr); tmr = setTimeout(function () { state.q = e.target.value.trim(); state.limit = 50; render(); }, 150);
+  });
+  document.querySelectorAll("#tbl th").forEach(function (th) {
+    th.addEventListener("click", function () {
+      var k = th.dataset.k;
+      if (state.sort === k) state.dir *= -1; else { state.sort = k; state.dir = (k === "question" || k === "name" || k === "outcome") ? 1 : -1; }
+      renderTable(filtered());
+    });
+  });
+  document.getElementById("more").addEventListener("click", function () { state.limit += 100; renderTable(filtered()); });
+  var rz; addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(render, 120); });
+
+  document.getElementById("updated").textContent = D.generated_at ? "Updated " + fmtTime(D.generated_at) : "No data yet";
+  document.getElementById("foot").textContent = "Data: Polymarket Gamma API & Data API v2 (public). " + D.flags.length + " flags on record across " + D.runs.length + " daily scan(s).";
+
+  function render() {
+    var F = filtered();
+    renderKpis(F); renderDaily(F); renderCats(F); renderOutcomes(F); renderTable(F);
+  }
+  render();
+})();
+</script>
+</body>
+</html>

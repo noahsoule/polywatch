@@ -1,0 +1,22 @@
+[
+ {
+  "at": 1795536739,
+  "duration_s": 3828,
+  "markets": 833,
+  "errors": 61,
+  "hits": 36,
+  "new": 32,
+  "resolved": 0,
+  "window_h": 168.0
+ },
+ {
+  "at": 1795540630,
+  "duration_s": 465,
+  "markets": 1100,
+  "errors": 3,
+  "hits": 8,
+  "new": 0,
+  "resolved": 0,
+  "window_h": 25
+ }
+]
