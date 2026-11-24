@@ -1386,5 +1386,38 @@
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
   "resolution": null
+ },
+ "0x5e14e5650094b798ef24db0238de84df40f3e7c3|0xc916288be54f9473bb263652748cbf073038874c9660c322b88c65cf8ec9f9d7|Yes": {
+  "key": "0x5e14e5650094b798ef24db0238de84df40f3e7c3|0xc916288be54f9473bb263652748cbf073038874c9660c322b88c65cf8ec9f9d7|Yes",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,931 bet",
+   "underdog @ 0.145"
+  ],
+  "wallet": "0x5e14e5650094b798ef24db0238de84df40f3e7c3",
+  "name": "bagholder101",
+  "outcome": "Yes",
+  "usd": 1930.9,
+  "shares": 13335.38,
+  "avg_price": 0.1448,
+  "fills": 2,
+  "first_trade": 1795547903,
+  "last_trade": 1795548059,
+  "txs": [
+   "0xf1428f3f8ae20e57a8d5548a572e092dffbfe53e7c545984da693867c1f8aa03",
+   "0xa54e2bb3b0a145379ee386fcf7037c17a3013e6298c94be98bbd8f0f3e65b49c"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0xc916288be54f9473bb263652748cbf073038874c9660c322b88c65cf8ec9f9d7",
+  "question": "Marco Rubio out as Secretary of State by December 31, 2026?",
+  "slug": "marco-rubio-out-as-secretary-of-state-by-december-31-2026",
+  "event": "marco-rubio-out-as-secretary-of-state-byptptpt",
+  "category": "Elections & politics",
+  "flagged_at": 1795549006,
+  "updated_at": 1795549006,
+  "resolution": null
  }
 }
