@@ -1419,5 +1419,111 @@
   "flagged_at": 1795549006,
   "updated_at": 1795549006,
   "resolution": null
+ },
+ "0xee02489cf90dfcfb12de27cbae84c88d210a275e|0x133b51a6851a2ee619e841693c0f75f3c3fdc8d75d69eadd3f0c0fe9105c50ee|Yes": {
+  "key": "0xee02489cf90dfcfb12de27cbae84c88d210a275e|0x133b51a6851a2ee619e841693c0f75f3c3fdc8d75d69eadd3f0c0fe9105c50ee|Yes",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$3,820 bet",
+   "underdog @ 0.226"
+  ],
+  "wallet": "0xee02489cf90dfcfb12de27cbae84c88d210a275e",
+  "name": "HarrisonLai",
+  "outcome": "Yes",
+  "usd": 3820.3,
+  "shares": 16885.0,
+  "avg_price": 0.2263,
+  "fills": 1,
+  "first_trade": 1795632073,
+  "last_trade": 1795632073,
+  "txs": [
+   "0x758fc2c3a4325f4b2705c766b434feb22c22e388bb815d1168391e59f71253f5"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0x133b51a6851a2ee619e841693c0f75f3c3fdc8d75d69eadd3f0c0fe9105c50ee",
+  "question": "Will Ko Chih-en win the next Kaohsiung Mayor election?",
+  "slug": "will-ko-chih-en-win-the-next-kaohsiung-mayor-election-20260813125857601",
+  "event": "kaohsiung-mayor-election-winner-20260813125857600",
+  "category": "Elections & politics",
+  "flagged_at": 1795633078,
+  "updated_at": 1795633078,
+  "resolution": null
+ },
+ "0xa053a456502462546b519441916353a3dd7b5e59|0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6|Yes": {
+  "key": "0xa053a456502462546b519441916353a3dd7b5e59|0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6|Yes",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,024 bet",
+   "underdog @ 0.120"
+  ],
+  "wallet": "0xa053a456502462546b519441916353a3dd7b5e59",
+  "name": "Gorkiano",
+  "outcome": "Yes",
+  "usd": 1024.33,
+  "shares": 8506.29,
+  "avg_price": 0.1204,
+  "fills": 2,
+  "first_trade": 1795558382,
+  "last_trade": 1795558457,
+  "txs": [
+   "0x20313a73ec5e58d9a9f0c0ed1e37dd254126f752d11313bece1ccdc24ebd4d75",
+   "0x23711a95b69c52b172667e7c0c383173f9c71383f022c719fcdcfe04c4a4c9e3"
+  ],
+  "age_h": 0.1,
+  "prior_markets": 1,
+  "condition": "0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6",
+  "question": "Will Pedro S\u00e1nchez be the next Prime Minister of Spain?",
+  "slug": "will-pedro-sanchez-be-the-next-prime-minister-of-spain-20260625005710096",
+  "event": "next-prime-minister-of-spain-20260625005215443",
+  "category": "Elections & politics",
+  "flagged_at": 1795633078,
+  "updated_at": 1795633078,
+  "resolution": null
+ },
+ "0x7ad3d7e5cda50dbe1fc5c29a1ffc2f61a9232e30|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes": {
+  "key": "0x7ad3d7e5cda50dbe1fc5c29a1ffc2f61a9232e30|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes",
+  "score": 6,
+  "why": [
+   "wallet 28d old",
+   "$8,767 bet",
+   "long shot @ 0.044",
+   "14 fills (accumulation)"
+  ],
+  "wallet": "0x7ad3d7e5cda50dbe1fc5c29a1ffc2f61a9232e30",
+  "name": "ATCapital",
+  "outcome": "Yes",
+  "usd": 8766.95,
+  "shares": 199894.76,
+  "avg_price": 0.0439,
+  "fills": 14,
+  "first_trade": 1795601879,
+  "last_trade": 1795628942,
+  "txs": [
+   "0xf458925652ea43df6bcfc38b5ad3cf784a9f7206350a3ce299a51eefe2ec4b41",
+   "0xf458925652ea43df6bcfc38b5ad3cf784a9f7206350a3ce299a51eefe2ec4b41",
+   "0x6c4655178ac9654202d71ecb119d66b2f4824d593c942da1ea2799725e9cf5ad",
+   "0xb330832592f5ba31b702c8375a3d307b8b87388d2d757c73f919c324953d99ea",
+   "0x0be7c3b7f0600ab7dfe6eb49400981f6cd7cc36b9b5a98580891bdbfbbef0fcd",
+   "0x2839a7a73c7f15b6dc607c5275d46269b77c9100be978a10e6e9f2343a41f17e",
+   "0x00c87bb5b610663d61d13b6b14db1bdee0467a82ddafabbed3962959d32479eb",
+   "0xcf23680de953ec70ef29f5c68c71bce6a94b63d11caef28645687b60b1436140",
+   "0x95655418eb4d1cdc8dbb6ef8238a873891f4247f4f58a8bf1c767afe0dfc7291",
+   "0xce16baea9b1c96e1fbb0f4f4e68f68cab85edb3573de2c072c8b1f81393629d8"
+  ],
+  "age_h": 670.3,
+  "prior_markets": 21,
+  "condition": "0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0",
+  "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+  "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
+  "event": "fed-decision-in-december-20260729232808632",
+  "category": "Fed & macro",
+  "flagged_at": 1795633078,
+  "updated_at": 1795633078,
+  "resolution": null
  }
 }
