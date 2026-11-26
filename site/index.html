@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Polywatch</title>
-<meta name="description" content="Unusual long-shot bets on Polymarket's news-sensitive markets, flagged daily from public on-chain data.">
+<meta name="description" content="Unusual long-shot bets on Polymarket's news-sensitive markets, flagged four times a day from public on-chain data.">
 <style>
 :root {
   color-scheme: light;
@@ -137,7 +137,7 @@ footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
   <header>
     <div>
       <h1><span class="dot"></span>Polywatch</h1>
-      <p class="sub">Unusual long-shot bets on Polymarket's news-sensitive markets, flagged daily from public on-chain data. A flag is a pattern worth a closer look, not proof of wrongdoing.</p>
+      <p class="sub">Unusual long-shot bets on Polymarket's news-sensitive markets, flagged four times a day from public on-chain data. A flag is a pattern worth a closer look, not proof of wrongdoing.</p>
     </div>
     <div class="meta"><span id="updated"></span><button id="theme" type="button" aria-label="Toggle color theme">◐</button></div>
   </header>
@@ -206,9 +206,9 @@ footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
     <h2>Methodology</h2>
     <p class="disclaimer">Polywatch surfaces <b>statistical patterns</b> in public trading data. A flagged wallet hasn't been shown to have traded on non-public information; many flags will be lucky guesses, hedges, or new users. Wallets are pseudonymous Polymarket accounts.</p>
     <h3>Which markets</h3>
-    <p>Each day the scanner checks open Polymarket markets with at least $10k of volume where a small group could know the outcome before the public: executive and government appointments, corporate actions, rulings, central-bank decisions, military action, award results, and what public figures will say or post. Crypto price, weather and sports markets are excluded.</p>
+    <p>Four times a day the scanner checks open Polymarket markets with at least $10k of volume where a small group could know the outcome before the public: executive and government appointments, corporate actions, rulings, central-bank decisions, military action, award results, and what public figures will say or post. Crypto price, weather and sports markets are excluded.</p>
     <h3>What gets scored</h3>
-    <p>Every buy at a price of 0.25 or less in the last 25 hours, including resting limit orders. Buys are summed per wallet, market and outcome. Positions under $1,000 are ignored. Wallet age and diversification are measured as of the first flagged trade.</p>
+    <p>Every buy at a price of 0.25 or less since the previous scan, including resting limit orders. Buys are summed per wallet, market and outcome. Positions under $1,000 are ignored. Wallet age and diversification are measured as of the first flagged trade.</p>
     <table>
       <thead><tr><th>Signal</th><th class="num">Points</th></tr></thead>
       <tbody>
@@ -566,7 +566,7 @@ footer { margin-top: 24px; color: var(--muted); font-size: 12px; }
   var rz; addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(render, 120); });
 
   document.getElementById("updated").textContent = D.generated_at ? "Updated " + fmtTime(D.generated_at) : "No data yet";
-  document.getElementById("foot").textContent = "Data: Polymarket Gamma API & Data API v2 (public). " + D.flags.length + " flags on record across " + D.runs.length + " daily scan(s).";
+  document.getElementById("foot").textContent = "Data: Polymarket Gamma API & Data API v2 (public). " + D.flags.length + " flags on record across " + D.runs.length + " scan(s).";
 
   function render() {
     var F = filtered();

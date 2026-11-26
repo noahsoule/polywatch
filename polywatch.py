@@ -10,7 +10,7 @@ Commands
   case   <wallet> [--condition 0x..]   forensic profile of one wallet (optionally one market)
   scan   [--hours 6] ...               one pass over active "sensitive" markets
   watch  [--interval 300] ...          scan in a loop, alerting on new hits only
-  run    [--hours 25]                  daily job: scan + history + resolutions + dashboard data
+  run    [--hours N]                   scheduled job: scan since last run + history + resolutions + site data
   build  [--resolve]                   rebuild site/data.js (dashboard) from history
 
 A hit is a pattern worth a human look, not proof of insider trading.
@@ -433,6 +433,9 @@ def cmd_run(cfg):
     t0 = time.time()
     history = load(HISTORY, {})
     runs = load(RUNS, [])
+    if not cfg.hours:  # cover the gap since the previous run so a late/skipped run loses nothing
+        gap_h = (t0 - runs[-1]["at"]) / 3600 + 1 if runs else 25
+        cfg.hours = round(min(48, max(7, gap_h)), 2)
     if not history and os.path.exists(cfg.log):  # one-time import of earlier ad-hoc scans
         with open(cfg.log) as f:
             old = [json.loads(l) for l in f if l.strip()]
@@ -471,8 +474,8 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     for name in ("scan", "watch", "run"):
         p = sub.add_parser(name)
-        p.add_argument("--hours", type=float, default=25 if name == "run" else 6,
-                       help="look-back window (default 6; 25 for the daily run)")
+        p.add_argument("--hours", type=float, default=None if name == "run" else 6,
+                       help="look-back window (default 6; for run: since the previous run + 1h, 7-48h)")
         p.add_argument("--until", type=int, help="window end, epoch seconds (backtests)")
         p.add_argument("--condition", help="scan a single market by condition id")
         p.add_argument("--min-usd", type=float, default=1000, help="min aggregated bet per wallet/outcome")
