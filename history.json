@@ -553,7 +553,13 @@
   "category": "Geopolitics",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": false,
+   "payout": 0.0,
+   "pnl": -1287.18,
+   "resolved_at": 1795712074
+  }
  },
  "0x6a0b26783f6e3b5dfe584b0eace190e5becf742f|0x4270ac599dd53df545ec79ef9026d53e72bfed723febe3450aaf5fdaa4f67429|Yes": {
   "key": "0x6a0b26783f6e3b5dfe584b0eace190e5becf742f|0x4270ac599dd53df545ec79ef9026d53e72bfed723febe3450aaf5fdaa4f67429|Yes",
@@ -730,7 +736,13 @@
   "category": "Geopolitics",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": false,
+   "payout": 0.0,
+   "pnl": -1575.0,
+   "resolved_at": 1795712074
+  }
  },
  "0x982cd9d1edc033a3e38cd7060c9527eb765743d8|0x97c0b1316b8d9ba677414e8a682948e7560c1af60fc239b085a68cc467c21f23|No": {
   "key": "0x982cd9d1edc033a3e38cd7060c9527eb765743d8|0x97c0b1316b8d9ba677414e8a682948e7560c1af60fc239b085a68cc467c21f23|No",
@@ -888,7 +900,13 @@
   "category": "Geopolitics",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": false,
+   "payout": 0.0,
+   "pnl": -3240.97,
+   "resolved_at": 1795712074
+  }
  },
  "0x0030ee2a77b848147295b8be41c0af3da213008d|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes": {
   "key": "0x0030ee2a77b848147295b8be41c0af3da213008d|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes",
@@ -961,7 +979,13 @@
   "category": "Geopolitics",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": false,
+   "payout": 0.0,
+   "pnl": -2987.81,
+   "resolved_at": 1795712074
+  }
  },
  "0x54772f0b3582af58efa9bc8128809fe02a6adde8|0x174ea87d011bfd0b230efc45e0b4d0756d38af91f0ffbab70013a582603c2be8|Yes": {
   "key": "0x54772f0b3582af58efa9bc8128809fe02a6adde8|0x174ea87d011bfd0b230efc45e0b4d0756d38af91f0ffbab70013a582603c2be8|Yes",
@@ -1174,7 +1198,13 @@
   "category": "Geopolitics",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": false,
+   "payout": 0.0,
+   "pnl": -2908.06,
+   "resolved_at": 1795712074
+  }
  },
  "0x19bb8bf4bd5cc5cdbc43d2745e14e525fafe8070|0x8a4196617dcb703e49d9bb36d3847bf6a75fd364dbd19f8d408ac944bf1a03d8|No": {
   "key": "0x19bb8bf4bd5cc5cdbc43d2745e14e525fafe8070|0x8a4196617dcb703e49d9bb36d3847bf6a75fd364dbd19f8d408ac944bf1a03d8|No",
@@ -1241,7 +1271,13 @@
   "category": "Geopolitics",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": false,
+   "payout": 0.0,
+   "pnl": -2186.97,
+   "resolved_at": 1795712074
+  }
  },
  "0xc8c3273095241ef3e8bbab7d82a33be10dda3608|0xa203cc908da0d417590e01f89fb651a335650d6b797da76ac28726d5f8c7610b|Yes": {
   "key": "0xc8c3273095241ef3e8bbab7d82a33be10dda3608|0xa203cc908da0d417590e01f89fb651a335650d6b797da76ac28726d5f8c7610b|Yes",
@@ -1524,6 +1560,327 @@
   "category": "Fed & macro",
   "flagged_at": 1795633078,
   "updated_at": 1795633078,
+  "resolution": null
+ },
+ "0xe26d997e7a86e6561322d9d96c7f31c3b8a1d40d|0x2343926c89946f2e3abe1511dd38a026ca9176b96d6554ec6d7ae5b1a59a6ef9|Yes": {
+  "key": "0xe26d997e7a86e6561322d9d96c7f31c3b8a1d40d|0x2343926c89946f2e3abe1511dd38a026ca9176b96d6554ec6d7ae5b1a59a6ef9|Yes",
+  "score": 10,
+  "why": [
+   "wallet 0h old",
+   "only 2 market(s) traded before",
+   "$4,172 bet",
+   "long shot @ 0.086",
+   "27 fills (accumulation)",
+   "47% of listed liquidity"
+  ],
+  "wallet": "0xe26d997e7a86e6561322d9d96c7f31c3b8a1d40d",
+  "name": "PewPewSpew",
+  "outcome": "Yes",
+  "usd": 4172.09,
+  "shares": 48412.92,
+  "avg_price": 0.0862,
+  "fills": 27,
+  "first_trade": 1795637292,
+  "last_trade": 1795644423,
+  "txs": [
+   "0x4eceb1ea6c750859a472912008aef9c23a91abca0e175a2461048170e9dd3d08",
+   "0x6ddc175324e68582dc690f68fab12991b5ebf6ecb889d533afc29cd1ec5c2167",
+   "0x35f900682f89097e01a5102f292d2c88e7660b39069afe059d063e42126240a3",
+   "0x47fa6905fe00169928cc3663f571848eafd8e6c220785647d2ca699d6c955bba",
+   "0xc2d9de2a7a6336407417dd2e49a28812a8b243e5e65fadfdd779497df4187aa9",
+   "0x4fc7aa8b00acddc8abb315b37a36591d25230b73567c17e8fd530297de332c50",
+   "0xd52202195ca787bce24aa7d0016cde437e00add448171f14fa12c5d54582ef03",
+   "0x532edd9aad94cdb44461f2b4d81fbc454261000ac26bed44e221d2fe1b1a65f8",
+   "0x4ee4b1e039b1d31546b5dca3513b74b8f8df1fc123fa00d91a5bf73acbacc0f7",
+   "0xf48d4f41f3522d1a95ae529b310743fc42fd9bf4f8c5eff744fa59dabd0b29db"
+  ],
+  "age_h": 0.4,
+  "prior_markets": 2,
+  "condition": "0x2343926c89946f2e3abe1511dd38a026ca9176b96d6554ec6d7ae5b1a59a6ef9",
+  "question": "Sudan civil war ceasefire by December 31, 2026?",
+  "slug": "sudan-civil-war-ceasefire-by-december-31-2026",
+  "event": "sudan-civil-war-ceasefire-by",
+  "category": "Geopolitics",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0xfb833b0a953971932f46c32a897907f54a68e22b|0x2343926c89946f2e3abe1511dd38a026ca9176b96d6554ec6d7ae5b1a59a6ef9|Yes": {
+  "key": "0xfb833b0a953971932f46c32a897907f54a68e22b|0x2343926c89946f2e3abe1511dd38a026ca9176b96d6554ec6d7ae5b1a59a6ef9|Yes",
+  "score": 10,
+  "why": [
+   "wallet 0h old",
+   "only 2 market(s) traded before",
+   "$2,713 bet",
+   "long shot @ 0.097",
+   "16 fills (accumulation)",
+   "30% of listed liquidity"
+  ],
+  "wallet": "0xfb833b0a953971932f46c32a897907f54a68e22b",
+  "name": "TraeDing",
+  "outcome": "Yes",
+  "usd": 2713.34,
+  "shares": 27893.42,
+  "avg_price": 0.0973,
+  "fills": 16,
+  "first_trade": 1795637347,
+  "last_trade": 1795642137,
+  "txs": [
+   "0xf51836515649695288c5887fb70c29d86d043eeecd32fadbb35bfc6628ca8046",
+   "0x5846bf350b58910a4aa8e4e2a97f4c0a5e9d0e9f8117b7a34acd49acad0da772",
+   "0xdc7991ae8d840433b64a4fa59277a0014edfa57e1d8a5c68f1d7432378ed4e64",
+   "0x7e74c9ab7fad3382462aa379c93dd61b6c2ddf6109db6fcef9b6f87a434270da",
+   "0x2c3b786022140d4420738f5d39267a5dc8816b7e9e4d9b498d87949eaabf7e1d",
+   "0x41740ac12d81156b72110187504fa0fce3f1d91a498bb438acc101ded87ac844",
+   "0xc49833c97250d1b4034a8ec1d669b868c8ad6b8f2eec2d3bf97b4401f6b62789",
+   "0x8bb97b3998bbb18c9902fca35fe4d98011b560bed683b8464217c9e7ecda0526",
+   "0x925f28bf52f6859a8acf937d566dc51c736ca02da0c165529ce100e01693a1ea",
+   "0xc5a489b94473c0d8a486812d4f83c4496c57d3b397e0b293553786d31a93a0d7"
+  ],
+  "age_h": 0.4,
+  "prior_markets": 2,
+  "condition": "0x2343926c89946f2e3abe1511dd38a026ca9176b96d6554ec6d7ae5b1a59a6ef9",
+  "question": "Sudan civil war ceasefire by December 31, 2026?",
+  "slug": "sudan-civil-war-ceasefire-by-december-31-2026",
+  "event": "sudan-civil-war-ceasefire-by",
+  "category": "Geopolitics",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0xb817f217328e752370ba1554fd57d2edc09b7b4a|0x128e8e725fff25f7ab942cbdae8eca9ed287ea8efc6cfa1cc9b1230f2fca2162|Yes": {
+  "key": "0xb817f217328e752370ba1554fd57d2edc09b7b4a|0x128e8e725fff25f7ab942cbdae8eca9ed287ea8efc6cfa1cc9b1230f2fca2162|Yes",
+  "score": 9,
+  "why": [
+   "wallet 0h old",
+   "only 2 market(s) traded before",
+   "$7,736 bet",
+   "underdog @ 0.162",
+   "6 fills (accumulation)"
+  ],
+  "wallet": "0xb817f217328e752370ba1554fd57d2edc09b7b4a",
+  "name": "clumsyraven5794",
+  "outcome": "Yes",
+  "usd": 7736.41,
+  "shares": 47744.3,
+  "avg_price": 0.162,
+  "fills": 6,
+  "first_trade": 1795678861,
+  "last_trade": 1795685959,
+  "txs": [
+   "0xd66480a6b2aa712052e4eaeca45dc46ae5e34ae7ae51fe892713e48be5145052",
+   "0x2a2407ed1f044eb3b928b532a364dfa4b1ee66dacf7ff65aced8d09ddee1557b",
+   "0xa35a590474c6e45c811858d085dad50419a635efc07c8031ccaabf5734469b5e",
+   "0x4238961a8c001ca634ae2e8b7ec7e0220c624a027bb9520afbb9f66b0c357a95",
+   "0x9807ab8e9108b1bb4cb10b073781e7405679a12082f8c97c052fd1d79f60c4e0",
+   "0x17db6eabb764ff660fe4a8439ffc05ef386e9b656d1c94baab3f83ffa7bd28c4"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 2,
+  "condition": "0x128e8e725fff25f7ab942cbdae8eca9ed287ea8efc6cfa1cc9b1230f2fca2162",
+  "question": "Jensen Huang announced resignation or removal again by March 31, 2027?",
+  "slug": "jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+  "event": "jensen-huang-out-as-nvidia-ceo-again-byptptpt",
+  "category": "Corporate",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0xea81c37bcb0222c353c624b26d46ed24386deaba|0x128e8e725fff25f7ab942cbdae8eca9ed287ea8efc6cfa1cc9b1230f2fca2162|Yes": {
+  "key": "0xea81c37bcb0222c353c624b26d46ed24386deaba|0x128e8e725fff25f7ab942cbdae8eca9ed287ea8efc6cfa1cc9b1230f2fca2162|Yes",
+  "score": 8,
+  "why": [
+   "wallet 0h old",
+   "only 2 market(s) traded before",
+   "$5,598 bet",
+   "underdog @ 0.160"
+  ],
+  "wallet": "0xea81c37bcb0222c353c624b26d46ed24386deaba",
+  "name": "888stone",
+  "outcome": "Yes",
+  "usd": 5597.61,
+  "shares": 35000.0,
+  "avg_price": 0.1599,
+  "fills": 1,
+  "first_trade": 1795645066,
+  "last_trade": 1795645066,
+  "txs": [
+   "0xac2047892f80d17e2beda85f0047408de0aabec9b18903d25d0117b6292714a5"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 2,
+  "condition": "0x128e8e725fff25f7ab942cbdae8eca9ed287ea8efc6cfa1cc9b1230f2fca2162",
+  "question": "Jensen Huang announced resignation or removal again by March 31, 2027?",
+  "slug": "jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+  "event": "jensen-huang-out-as-nvidia-ceo-again-byptptpt",
+  "category": "Corporate",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0xbad77c4805acd8e7abdac9ea8365c417ddf82879|0x602bf4a63f17aaccf05e62a9884f6abd6f01ca41c4ceb657d34957ed22b00179|Yes": {
+  "key": "0xbad77c4805acd8e7abdac9ea8365c417ddf82879|0x602bf4a63f17aaccf05e62a9884f6abd6f01ca41c4ceb657d34957ed22b00179|Yes",
+  "score": 8,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$2,066 bet",
+   "long shot @ 0.054"
+  ],
+  "wallet": "0xbad77c4805acd8e7abdac9ea8365c417ddf82879",
+  "name": "blubb22",
+  "outcome": "Yes",
+  "usd": 2066.29,
+  "shares": 38000.0,
+  "avg_price": 0.0544,
+  "fills": 2,
+  "first_trade": 1795638513,
+  "last_trade": 1795638525,
+  "txs": [
+   "0x5b4e0c1d92b29e1d22757b16e1be88d433e8c3f6fd404d84d6d0bbadd6352b97",
+   "0x42d0bda85d4c162c8f4b9c0c9a42bc51ffefdb1d94896d4bab5982b9b2146587"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0x602bf4a63f17aaccf05e62a9884f6abd6f01ca41c4ceb657d34957ed22b00179",
+  "question": "Jensen Huang announced resignation or removal again by December 31, 2026?",
+  "slug": "jensen-huang-announced-resignation-or-removal-again-by-december-31-2026",
+  "event": "jensen-huang-out-as-nvidia-ceo-again-byptptpt",
+  "category": "Corporate",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0xe75d78ffa47b2cf87b2fc5b30c0ac74fd4cd6757|0x097fcba335a369594eb07f373603564a4ae223f013645d3e2aa27008a61ca5ed|Yes": {
+  "key": "0xe75d78ffa47b2cf87b2fc5b30c0ac74fd4cd6757|0x097fcba335a369594eb07f373603564a4ae223f013645d3e2aa27008a61ca5ed|Yes",
+  "score": 8,
+  "why": [
+   "wallet 1h old",
+   "3 markets traded before",
+   "$1,550 bet",
+   "long shot @ 0.077",
+   "4 fills (accumulation)"
+  ],
+  "wallet": "0xe75d78ffa47b2cf87b2fc5b30c0ac74fd4cd6757",
+  "name": "Skeebeedeebap",
+  "outcome": "Yes",
+  "usd": 1550.0,
+  "shares": 20000.0,
+  "avg_price": 0.0775,
+  "fills": 4,
+  "first_trade": 1795696801,
+  "last_trade": 1795697674,
+  "txs": [
+   "0x2c269adbb20b393a14b41c8bef00250dd81383b60f4c31144463565388fa28a2",
+   "0xdbd39d1bff109a4feb63ff8179125fba988081ccc49e88e936d14987871c18ba",
+   "0x935f7057c079a68f648e9113be11dd33bf954a4b4282d33df4e397d623dba470",
+   "0x00cdc4142d7908ab209752203ac53250a3b7894233c6d589fca0f19253d7d1b0"
+  ],
+  "age_h": 0.7,
+  "prior_markets": 3,
+  "condition": "0x097fcba335a369594eb07f373603564a4ae223f013645d3e2aa27008a61ca5ed",
+  "question": "Belgium snap election called by December 31?",
+  "slug": "belgium-snap-election-called-by-december-31",
+  "event": "belgium-snap-election-called-by-december-31",
+  "category": "Elections & politics",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0x420bef5c6f2b4645bafa064fff18c8ee35c18720|0xa5f8a44504de30fa36fff2406b2b27b3d15476ed50448e4fc3ead4861d8a5e3e|Yes": {
+  "key": "0x420bef5c6f2b4645bafa064fff18c8ee35c18720|0xa5f8a44504de30fa36fff2406b2b27b3d15476ed50448e4fc3ead4861d8a5e3e|Yes",
+  "score": 8,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,186 bet",
+   "long shot @ 0.024"
+  ],
+  "wallet": "0x420bef5c6f2b4645bafa064fff18c8ee35c18720",
+  "name": "terry998",
+  "outcome": "Yes",
+  "usd": 1186.07,
+  "shares": 49951.96,
+  "avg_price": 0.0237,
+  "fills": 1,
+  "first_trade": 1795646230,
+  "last_trade": 1795646230,
+  "txs": [
+   "0x15ae5b1342e4bfafb9d29f4633c4003ec264d4ac1dd82f7d8fa2b65c87a8fd13"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0xa5f8a44504de30fa36fff2406b2b27b3d15476ed50448e4fc3ead4861d8a5e3e",
+  "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
+  "slug": "will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637",
+  "event": "fed-decision-in-december-20260729232808632",
+  "category": "Fed & macro",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0x2f6fc8d8e075e3ddd09c3bfb49ac7f9469b9fc8d|0xe944062b6d02b59c5f6c39cd4d35538918053c0c7e5f8d7fa0ab1d4edb9baa46|Yes": {
+  "key": "0x2f6fc8d8e075e3ddd09c3bfb49ac7f9469b9fc8d|0xe944062b6d02b59c5f6c39cd4d35538918053c0c7e5f8d7fa0ab1d4edb9baa46|Yes",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,000 bet",
+   "underdog @ 0.194"
+  ],
+  "wallet": "0x2f6fc8d8e075e3ddd09c3bfb49ac7f9469b9fc8d",
+  "name": "rumplysloth6093",
+  "outcome": "Yes",
+  "usd": 1000.0,
+  "shares": 5151.08,
+  "avg_price": 0.1941,
+  "fills": 1,
+  "first_trade": 1795686102,
+  "last_trade": 1795686102,
+  "txs": [
+   "0x6137bffc807c3b455850b170ab4655ae5774dab0a77a7fb5d561b256384c4eae"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0xe944062b6d02b59c5f6c39cd4d35538918053c0c7e5f8d7fa0ab1d4edb9baa46",
+  "question": "Will Anthropic have the best AI model at the end of December 2026?",
+  "slug": "will-anthropic-have-the-best-ai-model-at-the-end-of-december-2026",
+  "event": "which-company-has-best-ai-model-end-of-2026",
+  "category": "Corporate",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0x27e314060b23aa387b8420543e380b8ec052298a|0x174ea87d011bfd0b230efc45e0b4d0756d38af91f0ffbab70013a582603c2be8|Yes": {
+  "key": "0x27e314060b23aa387b8420543e380b8ec052298a|0x174ea87d011bfd0b230efc45e0b4d0756d38af91f0ffbab70013a582603c2be8|Yes",
+  "score": 6,
+  "why": [
+   "wallet 19d old",
+   "only 2 market(s) traded before",
+   "$9,590 bet",
+   "underdog @ 0.158"
+  ],
+  "wallet": "0x27e314060b23aa387b8420543e380b8ec052298a",
+  "name": "Wmh009",
+  "outcome": "Yes",
+  "usd": 9590.17,
+  "shares": 60765.2,
+  "avg_price": 0.1578,
+  "fills": 1,
+  "first_trade": 1795686012,
+  "last_trade": 1795686012,
+  "txs": [
+   "0xaa78bdfb95011248a37d3c22a86d36fd10e5e547bdb5e5091d8065965b2323f5"
+  ],
+  "age_h": 459.3,
+  "prior_markets": 2,
+  "condition": "0x174ea87d011bfd0b230efc45e0b4d0756d38af91f0ffbab70013a582603c2be8",
+  "question": "Will Jean-Luc M\u00e9lenchon win the 2027 French presidential election?",
+  "slug": "will-jean-luc-mlenchon-win-the-2027-french-presidential-election",
+  "event": "next-french-presidential-election",
+  "category": "Elections & politics",
+  "flagged_at": 1795711926,
+  "updated_at": 1795711926,
   "resolution": null
  }
 }
