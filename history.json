@@ -322,7 +322,13 @@
   "category": "Corporate",
   "flagged_at": 1795536739,
   "updated_at": 1795536739,
-  "resolution": null
+  "resolution": {
+   "winner": "Yes",
+   "won": true,
+   "payout": 9203.92,
+   "pnl": 7320.6,
+   "resolved_at": 1795744246
+  }
  },
  "0x63168c0c5a2fe35e8de1f764f6876aa82fcea510|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes": {
   "key": "0x63168c0c5a2fe35e8de1f764f6876aa82fcea510|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes",
@@ -1881,6 +1887,74 @@
   "category": "Elections & politics",
   "flagged_at": 1795711926,
   "updated_at": 1795711926,
+  "resolution": null
+ },
+ "0x051d4a51d80460150acb2a94e82b37e4f5f36aad|0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56|Yes": {
+  "key": "0x051d4a51d80460150acb2a94e82b37e4f5f36aad|0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56|Yes",
+  "score": 8,
+  "why": [
+   "wallet 22h old",
+   "only 2 market(s) traded before",
+   "$1,357 bet",
+   "underdog @ 0.227",
+   "4 fills (accumulation)"
+  ],
+  "wallet": "0x051d4a51d80460150acb2a94e82b37e4f5f36aad",
+  "name": "",
+  "outcome": "Yes",
+  "usd": 1357.0,
+  "shares": 5974.02,
+  "avg_price": 0.2272,
+  "fills": 4,
+  "first_trade": 1795717399,
+  "last_trade": 1795717737,
+  "txs": [
+   "0x456321467e1a97d34c614586da987d885430ccef99ad4eb9fd60934ec9d8adee",
+   "0xbb2fb23823ea8823fa60bdca253c62bcd17e11a63e1dba331fd8a49e2bf6546e",
+   "0xaf1fe51d3cc57d4054ac05b22e5a2dd03aa1853e279ee3c63f2c84914e54d663",
+   "0xd0d411bd1703fc81212a10d737993ddc0e218e4c3747a754fc5ba66a127aba02"
+  ],
+  "age_h": 22.1,
+  "prior_markets": 2,
+  "condition": "0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56",
+  "question": "Will David Lisnard win the 2027 French presidential election?",
+  "slug": "will-david-lisnard-win-the-2027-french-presidential-election",
+  "event": "next-french-presidential-election",
+  "category": "Elections & politics",
+  "flagged_at": 1795744088,
+  "updated_at": 1795744088,
+  "resolution": null
+ },
+ "0xda4f80ff247936340da3879803e6f00182a2d501|0xa157fcc18df3d9ca0655349b496c2bda2f13756f69c94d1dbca487863b01486c|No": {
+  "key": "0xda4f80ff247936340da3879803e6f00182a2d501|0xa157fcc18df3d9ca0655349b496c2bda2f13756f69c94d1dbca487863b01486c|No",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,958 bet",
+   "underdog @ 0.190"
+  ],
+  "wallet": "0xda4f80ff247936340da3879803e6f00182a2d501",
+  "name": "glitzyhorse5822",
+  "outcome": "No",
+  "usd": 1958.04,
+  "shares": 10305.45,
+  "avg_price": 0.19,
+  "fills": 1,
+  "first_trade": 1795728466,
+  "last_trade": 1795728466,
+  "txs": [
+   "0x1fa7c727ff61dff6d88c1dc9ca62a6569f41604f23e4f2d917efe94616c3def7"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0xa157fcc18df3d9ca0655349b496c2bda2f13756f69c94d1dbca487863b01486c",
+  "question": "Will Lai Jui-lung win the next Kaohsiung Mayor election?",
+  "slug": "will-lai-jui-lung-win-the-next-kaohsiung-mayor-election-20260813125857602",
+  "event": "kaohsiung-mayor-election-winner-20260813125857600",
+  "category": "Elections & politics",
+  "flagged_at": 1795744088,
+  "updated_at": 1795744088,
   "resolution": null
  }
 }
