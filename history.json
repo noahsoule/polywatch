@@ -1956,5 +1956,202 @@
   "flagged_at": 1795744088,
   "updated_at": 1795744088,
   "resolution": null
+ },
+ "0x4387cf455c43427fb863308193fc365f55e8bc65|0x8e00cd642ada2c18ededefa8c7c505a0ad37b9b44ac63376cbacfafbb22c2108|Yes": {
+  "key": "0x4387cf455c43427fb863308193fc365f55e8bc65|0x8e00cd642ada2c18ededefa8c7c505a0ad37b9b44ac63376cbacfafbb22c2108|Yes",
+  "score": 9,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$10,512 bet",
+   "underdog @ 0.118",
+   "3 fills (accumulation)"
+  ],
+  "wallet": "0x4387cf455c43427fb863308193fc365f55e8bc65",
+  "name": "wittyfalcon2210",
+  "outcome": "Yes",
+  "usd": 10511.6,
+  "shares": 89094.94,
+  "avg_price": 0.118,
+  "fills": 3,
+  "first_trade": 1795787869,
+  "last_trade": 1795788973,
+  "txs": [
+   "0x80d84b5713e8887dd507da0bd961b260350db76ea42aaf657c6e6921416f33d8",
+   "0x8ae4b742e7666b06af04e8bb371458259a51ddd84fd76230685e10ebbbbc3e09",
+   "0x3888dfb741367997714c259dc70873be9b4631e81aa30c20bf5b64d97b91916e"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0x8e00cd642ada2c18ededefa8c7c505a0ad37b9b44ac63376cbacfafbb22c2108",
+  "question": "Will Huang Shih-chieh win the next Taoyuan Mayor election?",
+  "slug": "will-huang-shih-chieh-win-the-next-taoyuan-mayor-election-20260813125857302",
+  "event": "taoyuan-mayor-election-winner-20260813125857300",
+  "category": "Corporate",
+  "flagged_at": 1795798147,
+  "updated_at": 1795798147,
+  "resolution": null
+ },
+ "0x5cc047b42cbcc7cbaa9640bf0cfe7d803c2c7623|0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56|Yes": {
+  "key": "0x5cc047b42cbcc7cbaa9640bf0cfe7d803c2c7623|0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56|Yes",
+  "score": 8,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$5,617 bet",
+   "underdog @ 0.250"
+  ],
+  "wallet": "0x5cc047b42cbcc7cbaa9640bf0cfe7d803c2c7623",
+  "name": "jimmyleferoce",
+  "outcome": "Yes",
+  "usd": 5617.02,
+  "shares": 22499.19,
+  "avg_price": 0.2497,
+  "fills": 1,
+  "first_trade": 1795796189,
+  "last_trade": 1795796189,
+  "txs": [
+   "0x2bd62568dd013c1591c3780caf551d48ee09367660dc0aa79084508a8a14967b"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0xce610556ec78cfd7894f4169d91fe70e31c2fb49f927fffd7fe7d06530f88d56",
+  "question": "Will David Lisnard win the 2027 French presidential election?",
+  "slug": "will-david-lisnard-win-the-2027-french-presidential-election",
+  "event": "next-french-presidential-election",
+  "category": "Elections & politics",
+  "flagged_at": 1795798147,
+  "updated_at": 1795798147,
+  "resolution": null
+ },
+ "0x2d235457f92f000bcc53ed1d98d3dc3b13b3295f|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes": {
+  "key": "0x2d235457f92f000bcc53ed1d98d3dc3b13b3295f|0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0|Yes",
+  "score": 8,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,560 bet",
+   "long shot @ 0.024"
+  ],
+  "wallet": "0x2d235457f92f000bcc53ed1d98d3dc3b13b3295f",
+  "name": "short-pain-long-gain",
+  "outcome": "Yes",
+  "usd": 1560.0,
+  "shares": 65000.0,
+  "avg_price": 0.024,
+  "fills": 2,
+  "first_trade": 1795758390,
+  "last_trade": 1795772945,
+  "txs": [
+   "0xd9fc0cc405eecee10509b53cfe3f2454686a243ab056a6fca1d8e3d6b2281da4",
+   "0xbe1425fa1e7a145b56a9ddbaa224e72b695f39dd99fe7fa30a7a8d3f9e4cfc1f"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0x723822eb2b143cee54c0bd7c1efba322b21f0051984c266df8879c394f1011c0",
+  "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+  "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
+  "event": "fed-decision-in-december-20260729232808632",
+  "category": "Fed & macro",
+  "flagged_at": 1795798147,
+  "updated_at": 1795798147,
+  "resolution": null
+ },
+ "0xbb4c81398ff390fa6459c1f88a0db5111c73527d|0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6|Yes": {
+  "key": "0xbb4c81398ff390fa6459c1f88a0db5111c73527d|0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6|Yes",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,880 bet",
+   "underdog @ 0.113"
+  ],
+  "wallet": "0xbb4c81398ff390fa6459c1f88a0db5111c73527d",
+  "name": "Tuelijeschocho",
+  "outcome": "Yes",
+  "usd": 1879.75,
+  "shares": 16692.3,
+  "avg_price": 0.1126,
+  "fills": 2,
+  "first_trade": 1795757211,
+  "last_trade": 1795757211,
+  "txs": [
+   "0x80e6d081fb7bf02b1eb6f305e39939ac191801ba8c4bf2a14a0e58989dd5c67c",
+   "0xb7929b4b7da90484269f44ff69a6f6a7d743aeb9f7a0165895896cc2091c02a7"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6",
+  "question": "Will Pedro S\u00e1nchez be the next Prime Minister of Spain?",
+  "slug": "will-pedro-sanchez-be-the-next-prime-minister-of-spain-20260625005710096",
+  "event": "next-prime-minister-of-spain-20260625005215443",
+  "category": "Elections & politics",
+  "flagged_at": 1795798147,
+  "updated_at": 1795798147,
+  "resolution": null
+ },
+ "0x56e7ed09051b91b5db254c592d4e270fe54bd7f6|0x97c0b1316b8d9ba677414e8a682948e7560c1af60fc239b085a68cc467c21f23|No": {
+  "key": "0x56e7ed09051b91b5db254c592d4e270fe54bd7f6|0x97c0b1316b8d9ba677414e8a682948e7560c1af60fc239b085a68cc467c21f23|No",
+  "score": 7,
+  "why": [
+   "wallet 0h old",
+   "only 1 market(s) traded before",
+   "$1,000 bet",
+   "underdog @ 0.110"
+  ],
+  "wallet": "0x56e7ed09051b91b5db254c592d4e270fe54bd7f6",
+  "name": "",
+  "outcome": "No",
+  "usd": 1000.0,
+  "shares": 9090.91,
+  "avg_price": 0.11,
+  "fills": 1,
+  "first_trade": 1795752266,
+  "last_trade": 1795752266,
+  "txs": [
+   "0xaa7805b25136fa6227b1fe74e77c6bc42c599ceff71fcaacd9bd934edc780870"
+  ],
+  "age_h": 0.0,
+  "prior_markets": 1,
+  "condition": "0x97c0b1316b8d9ba677414e8a682948e7560c1af60fc239b085a68cc467c21f23",
+  "question": "Will Alberto N\u00fa\u00f1ez Feij\u00f3o be the next Prime Minister of Spain?",
+  "slug": "will-alberto-nunez-feijoo-be-the-next-prime-minister-of-spain-20260625005710103",
+  "event": "next-prime-minister-of-spain-20260625005215443",
+  "category": "Elections & politics",
+  "flagged_at": 1795798147,
+  "updated_at": 1795798147,
+  "resolution": null
+ },
+ "0x5a4dfa8663168bfe797d74c7fd0b4d9e13e8364c|0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6|Yes": {
+  "key": "0x5a4dfa8663168bfe797d74c7fd0b4d9e13e8364c|0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6|Yes",
+  "score": 6,
+  "why": [
+   "wallet 26h old",
+   "4 markets traded before",
+   "$1,072 bet",
+   "underdog @ 0.116"
+  ],
+  "wallet": "0x5a4dfa8663168bfe797d74c7fd0b4d9e13e8364c",
+  "name": "0x5a4dFa8663168bFe797d74c7fd0b4d9e13E8364c-1781703260853",
+  "outcome": "Yes",
+  "usd": 1071.71,
+  "shares": 9210.05,
+  "avg_price": 0.1164,
+  "fills": 1,
+  "first_trade": 1795793713,
+  "last_trade": 1795793713,
+  "txs": [
+   "0x74549a157773fba47e856b43e22f103df47c7ed304ea7f90021e1b97194721cb"
+  ],
+  "age_h": 26.4,
+  "prior_markets": 4,
+  "condition": "0x91e20860241f7c90fcff5ec348a68f953bd66a02d5662ac26cab32ac1f904be6",
+  "question": "Will Pedro S\u00e1nchez be the next Prime Minister of Spain?",
+  "slug": "will-pedro-sanchez-be-the-next-prime-minister-of-spain-20260625005710096",
+  "event": "next-prime-minister-of-spain-20260625005215443",
+  "category": "Elections & politics",
+  "flagged_at": 1795798147,
+  "updated_at": 1795798147,
+  "resolution": null
  }
 }

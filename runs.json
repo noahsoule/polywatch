@@ -58,5 +58,15 @@
   "new": 2,
   "resolved": 1,
   "window_h": 9.93
+ },
+ {
+  "at": 1795798147,
+  "duration_s": 178,
+  "markets": 1224,
+  "errors": 0,
+  "hits": 6,
+  "new": 6,
+  "resolved": 0,
+  "window_h": 16.02
  }
 ]
